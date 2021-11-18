@@ -1,0 +1,22 @@
+# importing the necessary modules:
+import numpy as np
+import pandas as pd
+from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
+
+import matplotlib.pyplot as plt
+from PIL import Image
+text = open("skills.txt").read()
+
+wordcloud = WordCloud(width=400, 
+                      height=200,
+                      prefer_horizontal=0.5,
+                      background_color="rgba(255, 255, 255, 0)", 
+                      mode="RGBA").generate(text)
+
+# Display the generated image:
+plt.imshow(wordcloud)
+plt.axis("off")
+plt.show()
+
+#Saving to file
+wordcloud.to_file("skills.png")
